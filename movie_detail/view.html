@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+			<div ng-show="!loading">
+				<div class="row">
+						<div class="col-sm-11">
+							<h1>{{movie.title}}({{movie.year}})</h1>
+						</div>
+						<div class="col-sm-1">
+							<a href="javascript:history.go(-1)" class="btn btn-primary">&laquo;Back</a>
+						</div>
+						<div class="col-sm-3">
+							<img ng-src="{{movie.images.large}}" alt="{{movie.alt}}" width="180">
+						</div>
+						<div class="col-sm-9">
+							<p>原名：{{movie.original_title}}</p>
+							<p>导演：<span ng-repeat="d in movie.directors">{{d.name}}{{$last?'':'、'}}</span></p>
+							<p>主演：<span ng-repeat="c in movie.casts">{{c.name}}{{$last?'':'、'}}</span></p>
+							<p>类型：{{movie.genres.join('、')}}</p>
+							<p>年代：{{movie.year}}</p>
+							<p>制片国家：{{movie.countries.join('、')}}</p>
+							<p>又名：{{movie.aka.join('、')}}</p>
+							<p>豆瓣评分：{{movie.rating.average}}&nbsp;&nbsp;&nbsp;&nbsp;<small class="red">{{movie.ratings_count}}人评价</small></p>
+							<p>想看人数：{{movie.wish_count}}&nbsp;&nbsp;&nbsp;&nbsp;看过人数：{{movie.collect_count}}</small></p>
+						</div>
+
+						<div class="col-sm-12">
+							<dl>
+								<br>
+								<dt>剧情简介</dt>
+								<dd>{{movie.summary}}</dd>
+							</dl>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="mask" ng-show="loading">
+	<div class="spinner">
+	  <div class="dot1"></div>
+	  <div class="dot2"></div>
+	</div>
+</div>

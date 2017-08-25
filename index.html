@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app" ng-controller="IndexController" ng-cloak>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-app">
+    <div class="container">
+      <div class="col-lg-10 col-lg-offset-1">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            基于豆瓣API
+          </a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <!-- <li><a onclick="javascript:document.getElementById('movie').scrollIntoView()">电影频道</a></li>
+            <li><a onclick="javascript:document.getElementById('book').scrollIntoView()">读书频道</a></li> -->
+
+            <li><a href="#/#movie">电影频道</a></li>
+            <li><a href="#/#book">图书频道</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div ng-view></div>
+
+  <div ng-show="ifshow">
+    <section class="movie" id="movie">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+            <div class="col-md-6">
+              <h1>电影频道</h1>
+              <p>
+                想知道正在热映的电影?<br>
+                想提前了解即将上映的影剧？<br>
+                想掌握近年来全球最Top的电影？<br>
+                国内最权威电影评分,千万影迷的真实观影感受，为你的观影做决策<br>
+                新片好片推送，让你不再错过任何一部好电影。
+              </p>
+              <button class="btn btn-default"><a href="#/movie/in_theaters/1">Let's GO!</a></button><br>
+              <small>了解详情，点击进入电影频道... </small>     
+            </div>
+            <div class="col-md-6">
+              <img class="img-responsive" src="images/movie.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="book" id="book" name='book'>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+            <div class="col-md-6">
+              <img class="img-responsive" src="images/book.png">
+            </div>
+            <div class="col-md-6">
+              <h1>图书搜索</h1>
+              <p>
+                国内信息最全、用户数量最大且最为活跃的图书库<br>
+                专注于为用户提供全面且精细化的图书服务<br>
+                在这里你可以根据不同的关键字，查到你需要的图书的详细信息
+              </p>
+              <button class="btn btn-default"><a href="#/book/search/1?tag=小说">Let's GO!</a></button><br>
+              <small>点击进入图书搜索频道... </small>     
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <a href="javascript:;" id="scrollup">
+    <img src="images/scrollup.png" alt="回到顶部">
+  </a>
+
+
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-route/angular-route.js"></script>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  
+  <!-- 主模块 -->
+  <script src="app.js"></script>
+  <script src="components/http.js"></script>
+	<!-- 子模块 -->
+	<script src="movie_list/controller.js"></script>
+  <script src="movie_detail/controller.js"></script>
+  <script src="book_list/controller.js"></script>
+	<script src="book_detail/controller.js"></script>
+
+
+</body>
+</html>

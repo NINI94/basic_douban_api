@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+			<h1 class="page-header">{{title}}</h1>
+			<form class="navbar-form moviesearch" ng-controller="SearchController" ng-submit="search()">
+        <input type="text" class="form-control" placeholder="Search..." ng-model="input">
+      </form>
+			<div class="list-group">
+				<a href="#/movie/detail/{{item.id}}" ng-repeat="item in subjects" class="list-group-item">
+					<span class="badge">{{item.rating.average}}</span>
+					<div class="media">
+						<div class="media-left">
+							<img ng-src="{{item.images.medium}}" alt="{{item.title}}" class="media-object" height="128">
+						</div>
+						<div class="media-body">
+							<h2 class="media-heading">{{item.title}}</h2>
+							<p>类型：{{item.genres.join('、')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上映年份：{{item.year}}</p>
+							<p>导演：<span ng-repeat="d in item.directors">{{d.name}}{{$last?'':'、'}}</span></p>
+							<p>主演：<span ng-repeat="c in item.casts">{{c.name}}{{$last?'':'、'}}</span></p>
+						</div>
+					</div>
+
+				</a>
+			</div>
+
+
+			<div ng-hide="loading">
+				<p>总共：{{totalCount}}条记录，第{{currentPage}}/{{totalPages}}页</p>
+
+				<nav class="row">
+					<div class="col-sm-8">
+						<ul class="pagination movielist_pagination pull-right"></ul>
+					</div>
+					<div class="col-sm-2">
+						<form ng-submit="go(page)">
+							<span class="topagebox">
+							到第<input type="text" class="button" ng-model="page">页
+							</span>
+						</form>
+					</div>
+					<div class="col-sm-2">
+						<button class="btn btn-default go" ng-click="go(page)">GO</button>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="list-group movie_nav">
+  <a href="#/movie/in_theaters/1" ng-class="{'list-group-item':true,'active':isActive('in_theaters')}">正在热映</a>
+  <a href="#/movie/coming_soon/1" ng-class="{'list-group-item':true,'active':isActive('coming_soon')}">即将上映</a>
+  <a href="#/movie/top250/1" ng-class="{'list-group-item':true,'active':isActive('top250')}">TOP250</a>
+</div>
+
+
+<div class="mask" ng-show="loading">
+	<div class="spinner">
+	  <div class="dot1"></div>
+	  <div class="dot2"></div>
+	</div>
+</div>
+

@@ -1,0 +1,17 @@
+{
+  "name": "basic_douban_api",
+  "version": "1.0.0",
+  "description": "1. 命令行创建npm的配置文件 \r     `npm init`\r 2. 由于本项目是基于angularjs和bootstraop开发的，所以还要安装\r         npm install angular@1.4.9 --save\r         npm install bootstrap --save\r         npm install angular-route --save\r 3. 配置完成，项目开始\r 4. 项目目录\r         basic_douban_api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NINI",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.11",
+    "angular-route": "^1.5.11",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}

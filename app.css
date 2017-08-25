@@ -1,0 +1,235 @@
+
+body {
+  padding-top: 60px;
+}
+
+
+[ng-cloak] {
+	display: none;
+}
+.red {
+	color: red;
+}
+
+
+/**
+ * 回到顶部
+ */
+#scrollup {
+  right: 20px;
+  top: 500px;
+  position: absolute;
+}
+
+
+section {
+  padding: 40px 0;
+}
+.movie h1, .book h1 {
+  margin: 20px 0;
+}
+.movie p, .book p {
+  line-height: 35px;
+}
+
+.book {
+  background-color: #f6f6f6;
+}
+.book img {
+  height: 320px;
+}
+
+
+/**
+ * css loading
+ */
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+
+
+
+/**
+ * 电影侧边导航
+ */
+.movie_nav {
+  width: 100px;
+  position: absolute;
+  left: 20px;
+  top: 70px;
+}
+
+
+
+
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 2000;
+}
+
+
+
+
+.topagebox {
+  margin: 20px 0;
+  height: 25px;
+  line-height: 25px;
+  display: inline-block;
+}
+.topagebox input {
+  width: 30px;
+  margin: 0 2px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.go {
+  margin: 20px 0;
+}
+
+
+
+
+/**
+ * moviesearch, booksearch
+ */
+.moviesearch, .booksearch {
+  position: absolute;
+  top: 35px;
+  right: 0px;
+}
+
+
+/**
+ * book侧边导航栏
+ */
+.book_nav {
+  width: 160px;
+  position: absolute;
+  left: 20px;
+  top: 170px;
+}
+.leftMenu .panel-heading {
+  font-size:14px;
+  padding-left:20px;
+  height:32px;
+  line-height:32px;
+  color:#777;
+  position:relative;
+  cursor:pointer;
+}
+/*转成手形图标*/
+.leftMenu .panel-heading span {
+  position:absolute;
+  right:10px;
+  top:12px;
+}
+.leftMenu .panel-collapse {
+  padding: 2px 5px;
+}
+.leftMenu h4 {
+  font-size: 14px;
+  color: #777;
+}
+
+.leftMenu a {
+  font-size: 12px;
+  padding-right: 5px;
+  height: 20px;
+  line-height: 20px;
+}
+
+
+
+
+
+/**
+ * book_list 书的简短介绍
+ */
+.book_intro {
+  width: 788px;
+  height: 40px;
+  line-height: 20px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*white-space: nowrap;*/
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+
+
+/**
+ * book_detail  label
+ */
+.tag .label-info {
+  font-weight: normal;
+  padding: 5px 10px;
+  margin: 10px 10px 10px 0;
+}
+dl dt {
+  line-height: 30px;
+  margin-top: 25px;
+}
+dl dd {
+  text-indent: 2em;
+  font-size: 12px;
+  line-height: 24px;
+}
+.catalog dd {
+  text-indent: 0;
+  padding-left: 2em;
+}
