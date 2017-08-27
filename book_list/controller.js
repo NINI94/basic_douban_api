@@ -50,7 +50,7 @@
 
           $scope.format = 'index.html#/book/' + $routeParams.category + '/';
 
-          var pager = new Pagination($scope.currentPage, $scope.totalPages, 7, $scope.format, $routeParams.q, $routeParams.tag);
+          var pager = new Pagination($scope.currentPage, $scope.totalPages, 5, $scope.format, $routeParams.q, $routeParams.tag);
           pager.render('.booklist_pagination');
 
 
@@ -155,12 +155,32 @@
       }
 
 
+      var trigger = $('.hamburger');
+      var overlay = $('.overlay');
+      var isClosed = false;
 
+      trigger.click(function () {
+        hamburger_cross();      
+      });
 
-      // $scope.iftoggle = true;
-      // $scope.toggle = function() {
-      //   $scope.iftoggle = !$scope.iftoggle;
-      // }
+      function hamburger_cross() {
+
+        if (isClosed == true) {          
+          overlay.hide();
+          trigger.removeClass('is-open');
+          trigger.addClass('is-closed');
+          isClosed = false;
+        } else {   
+          overlay.show();
+          trigger.removeClass('is-closed');
+          trigger.addClass('is-open');
+          isClosed = true;
+        }
+      }
+      
+      $('[data-toggle="offcanvas"]').click(function () {
+            $('#wrapper').toggleClass('toggled');
+      });
 
 
     }

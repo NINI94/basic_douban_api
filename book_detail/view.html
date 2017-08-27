@@ -1,64 +1,73 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
-			<div ng-show="!loading">
-				<div class="row">
-						<div class="col-sm-11">
-							<h1>{{book.title}}</h1>
-						</div>
-						<div class="col-sm-1">
-							<a href="javascript:history.go(-1)" class="btn btn-primary">&laquo;Back</a>
-						</div>
-						<div class="col-sm-3">
-							<img ng-src="{{book.images.large}}" alt="{{book.alt}}" width="180">
-						</div>
-						<div class="col-sm-6">
-							<p>书名：{{book.title}}</p>
-							<p>作者：{{book.author.join('、')}}</p>
-							<p>出版社：{{book.publisher}}</p>
-							<p ng-show="book.origin_title.length">原作名：{{book.origin_title}}</p>
-							<p ng-show="book.translator.length">译者：{{book.translator.join('、')}}</p>
-							<p>出版年：{{book.pubdate}}</p>
-							<p>页数：{{book.pages}}</p>
-							<p>定价：{{book.price}}</p>
-							<p>装帧：{{book.binding}}</p>
-							<p ng-show="book.series.length">丛书：{{book.series.title}}</p>
-							<p>ISBN：{{book.isbn13}}</p>
-						</div>
-						<div class="col-sm-3">
-							<p>豆瓣评分：<span class="red">{{book.rating.average}}</span></p>
-							<p>评分人数：<span class="red">{{book.rating.numRaters}}</span></p>
-						</div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+      <div ng-show="!loading">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12">
+            <div class="row">
+              <div class="col-xs-9 col-sm-10">
+                <h1 class="page-header">{{book.title}}</h1>
+              </div>
+              <div class="col-xs-3 col-sm-2">
+                <a href="javascript:history.go(-1)" class="back btn btn-primary">&laquo;Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <img ng-src="{{book.images.large}}" alt="{{book.alt}}" width="180">
+          </div>
+          <div class="col-sm-6">
+            <p>书名：{{book.title}}</p>
+            <p>作者：{{book.author.join('、')}}</p>
+            <p>出版社：{{book.publisher}}</p>
+            <p ng-show="book.origin_title.length">原作名：{{book.origin_title}}</p>
+            <p ng-show="book.translator.length">译者：{{book.translator.join('、')}}</p>
+            <p>出版年：{{book.pubdate}}</p>
+            <p>页数：{{book.pages}}</p>
+            <p>定价：{{book.price}}</p>
+            <p>装帧：{{book.binding}}</p>
+            <p ng-show="book.series.length">丛书：{{book.series.title}}</p>
+            <p>ISBN：{{book.isbn13}}</p>
+          </div>
+          <div class="col-sm-3">
+            <p>豆瓣评分：<span class="red">{{book.rating.average}}</span></p>
+            <p>评分人数：<span class="red">{{book.rating.numRaters}}</span></p>
+          </div>
 
-						<div class="col-sm-12">
-							<dl ng-show="book.tags.length">
-								<dt>标签</dt>
-								<dd class="tag"><span class="label label-info" ng-repeat="t in book.tags">{{t.name}}</span></dd>
-							</dl>
-							<dl ng-show="book.summary.length">
-								<dt>内容简介</dt>
-								<dd>{{book.summary}}</dd>
-							</dl>
-							<dl ng-show="book.author_intro.length">
-								<dt>作者简介</dt>
-								<dd>{{book.author_intro}}</dd>
-							</dl>
-							<dl class="catalog">
-								<dt ng-show="book.catalog">目录</dt>
-								<dd ng-bind-html="book.catalog"></dd>
-							</dl>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
+          <div class="col-sm-12">
+            <dl ng-show="book.tags.length">
+              <dt>标签</dt>
+              <dd class="tag">
+                <span class="label label-info" ng-repeat="t in book.tags">{{t.name}}</span>
+                <div class="clear"></div>
+              </dd>
+            </dl>
+            <dl ng-show="book.summary.length">
+              <dt>内容简介</dt>
+              <dd>{{book.summary}}</dd>
+            </dl>
+            <dl ng-show="book.author_intro.length">
+              <dt>作者简介</dt>
+              <dd>{{book.author_intro}}</dd>
+            </dl>
+            <dl class="catalog">
+              <dt ng-show="book.catalog">目录</dt>
+              <dd ng-bind-html="book.catalog"></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
 <div class="mask" ng-show="loading">
-	<div class="spinner">
-	  <div class="dot1"></div>
-	  <div class="dot2"></div>
-	</div>
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
 </div>

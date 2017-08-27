@@ -6,6 +6,7 @@ angular.module('app', [
   'moviecat.movie_list',
   'books.book_list',
   'books.book_detail',
+  'directives.back_top',
 ])
 // 为模块定义一些常量
 .constant('AppConfig', {
@@ -77,49 +78,19 @@ angular.module('app', [
     }
 
     // 判断是否是当前页面
-    $scope.isActive = function(url) {
-      if ($routeParams.category==url) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+    // $scope.isActive = function(url) {
+    //   if ($routeParams.category==url) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
 
 
-    /**
-     * 回到顶部
-     */
-    backTop();
-    function backTop() {
-      var scrollUp = $window.document.getElementById('scrollup');
-      // 按钮原来的位置
-      var T = scrollup.offsetTop;
-      scrollUp.style.display = 'none';
-      // 可见文档的高度
-      var pageClientHeight = $window.document.documentElement.clientHeight;
-      // 按钮的位置 = 原来的位置 + 滚动条滚动的高度
-      window.onscroll = function() {
-        var scrollTop = $window.document.documentElement.scrollTop || $window.document.body.scrollTop;
-        scrollUp.style.top = T + scrollTop + 'px';  
-        if (scrollTop >= pageClientHeight) {
-          scrollUp.style.display = 'block';
-          
-        } else {
-          scrollUp.style.display = 'none';
-        }
-      }
-      scrollUp.onclick = function() {
-        scrollUp.timer = setInterval(function() {
-          var scrollTop = $window.document.documentElement.scrollTop || $window.document.body.scrollTop;
-          var speedTop = scrollTop/5;
-          $window.document.body.scrollTop = scrollTop - speedTop;
-          if (scrollTop == 0) {
-            clearInterval(scrollUp.timer);
-          }
-        },30);
-      }
-    }
-
+    // 顶部小屏幕导航点击关闭菜单
+    $(".navbar-collapse a").click(function() {
+      $(".navbar-collapse").collapse('hide');
+    });
 
   }
 ]);
